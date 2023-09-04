@@ -1,6 +1,6 @@
 package com.zz.pojo;
 
-import jdk.jfr.DataAmount;
+
 import lombok.Data;
 
 @Data
