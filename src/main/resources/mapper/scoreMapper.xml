@@ -8,3 +8,4 @@
         select * from SCORE
     </select>
 </mapper>
+

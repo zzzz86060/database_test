@@ -1,4 +1,4 @@
 package com.zz.mapper;
 
-public class courseMapper {
+public interface courseMapper {
 }

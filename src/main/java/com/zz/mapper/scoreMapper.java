@@ -1,4 +1,4 @@
 package com.zz.mapper;
 
-public class scoreMapper {
+public interface scoreMapper {
 }
