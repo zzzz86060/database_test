@@ -1,0 +1,8 @@
+server:
+  port: 1521
+spring:
+  datasource:
+    driverClassName: oracle.jdbc.driver.OracleDriver
+    url: jdbc:oracle:thin:@114.55.146.119:SS
+    username: SS
+    password: root
