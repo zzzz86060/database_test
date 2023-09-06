@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class STUDENT {
-    char sno;
+    Integer SNO;
     char sname;
     char ssex;
     char sbirthday;

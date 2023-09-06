@@ -16,5 +16,18 @@ public class studentcontroller {
     public List<STUDENT> getAllStudents(){
         return service.getAllStudent();
     }
-
+    @RequestMapping("delete")
+    public boolean deleteStudent(int sno){
+       int cnt =  service.deleteStudent(sno);
+       return cnt > 0;
+    }
+    @RequestMapping("/getone")
+   public STUDENT getOneStudent(int sno){
+        return service.getOneStudent(sno);
+    }
+    @RequestMapping("/add")
+    public boolean addStudent(STUDENT student){
+        int cnt =  service.addStudent(student);
+        return cnt > 0;
+    }
 }
