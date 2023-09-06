@@ -5,13 +5,20 @@
         >
 <mapper namespace="com.zz.mapper.studentMapper">
     <insert id="addStudent" parameterType="com.zz.pojo.STUDENT">
-        insert into STUDENT (  sno,sname,ssex,sbirthday,speciality,sclass,tc)
+        insert into STUDENT (sno,sname,ssex,sbirthday,speciality,sclass,tc)
         values(#{sno},#{sname},#{ssex},#{sbirthday},#{speciality},#{sclass},#{tc});
     </insert>
     <select id="getAllStudent" resultType="com.zz.pojo.STUDENT">
-        select * from STUDENT
+        select
+            * from STUDENT
     </select>
     <select id="getOneStudent" parameterType="int" resultType="com.zz.pojo.STUDENT">
         select * from STUDENT where sno = #{sno}
     </select>
+    <delete id="deleteStudent" parameterType="int">
+        delete from STUDENT where sno = #{sno}
+    </delete>
+    <update id="updateStudent" parameterType="com.zz.pojo.STUDENT">
+
+    </update>
 </mapper>
