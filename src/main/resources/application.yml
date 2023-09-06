@@ -1,8 +1,13 @@
 server:
-  port: 1521
+  port: 8080
 spring:
   datasource:
     driverClassName: oracle.jdbc.driver.OracleDriver
-    url: jdbc:oracle:thin:@114.55.146.119:helowinXDB
+    url: jdbc:oracle:thin:@//114.55.146.119:1521/helowinXDB
     username: SS
     password: root
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  #目的是为了省略resultType里的代码量
+  type-aliases-package: com.zz.pojo
