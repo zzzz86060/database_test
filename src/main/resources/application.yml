@@ -3,6 +3,6 @@ server:
 spring:
   datasource:
     driverClassName: oracle.jdbc.driver.OracleDriver
-    url: jdbc:oracle:thin:@114.55.146.119:SS
+    url: jdbc:oracle:thin:@114.55.146.119:helowinXDB
     username: SS
     password: root
