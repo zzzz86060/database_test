@@ -6,6 +6,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.zz.service.studentService;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -26,7 +29,7 @@ public class studentcontroller {
         return service.getOneStudent(sno);
     }
     @RequestMapping("/add")
-    public boolean addStudent(STUDENT student){
+    public boolean addStudent(STUDENT student) throws ParseException {
         int cnt =  service.addStudent(student);
         return cnt > 0;
     }

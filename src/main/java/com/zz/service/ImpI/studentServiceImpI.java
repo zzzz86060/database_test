@@ -30,6 +30,7 @@ public class studentServiceImpI implements studentService {
     }
 
     @Override
+    @Transactional
     public int addStudent(STUDENT student) {
         return studentMapper.addStudent(student);
     }
