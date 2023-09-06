@@ -9,8 +9,7 @@
         values(#{sno},#{sname},#{ssex},#{sbirthday},#{speciality},#{sclass},#{tc});
     </insert>
     <select id="getAllStudent" resultType="com.zz.pojo.STUDENT">
-        select
-            * from STUDENT
+        select * from STUDENT
     </select>
     <select id="getOneStudent" parameterType="int" resultType="com.zz.pojo.STUDENT">
         select * from STUDENT where sno = #{sno}
