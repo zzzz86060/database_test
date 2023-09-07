@@ -3,7 +3,9 @@ package com.zz.controller;
 import com.zz.pojo.STUDENT;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.zz.service.studentService;
@@ -32,7 +34,7 @@ public class studentcontroller {
         return service.getOneStudent(sno);
     }
     @RequestMapping("/add")
-    public boolean addStudent(STUDENT student) throws ParseException {
+    public boolean addStudent(@RequestBody STUDENT student) throws ParseException {
         int cnt =  service.addStudent(student);
         return cnt > 0;
     }
