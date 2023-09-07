@@ -9,7 +9,7 @@ import java.util.List;
 @Mapper
 public interface studentMapper {
     @Insert("insert into STUDENT(SNO,SNAME,SSEX,SBIRTHDAY,SPECIALITY,SCLASS,TC) values(${student.SNO},'${student.SNAME}','${student.SSEX}','${student.SBIRTHDAY}','${student.SPECIALITY}','${student.SCLASS}',${student.TC})")
-    int addStudent(@Param(value = "student") STUDENT student);
+     int addStudent(@Param(value = "student") STUDENT student);
 
     @Select("select * from STUDENT")
     List<STUDENT> getAllStudent();

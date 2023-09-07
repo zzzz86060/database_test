@@ -1,0 +1,80 @@
+<!--
+ * @Author: 百璃anki 137508190+zzzz86060@users.noreply.github.com
+ * @Date: 2023-09-07 19:27:32
+ * @LastEditors: 百璃anki 137508190+zzzz86060@users.noreply.github.com
+ * @LastEditTime: 2023-09-08 00:42:24
+ * @FilePath: \vue1\index.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>开始使用 layui</title>
+    <link rel="stylesheet" type="text/css" href="https://www.layuicdn.com/layui-v2.5.6/css/layui.css" />
+    <script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+
+<div id="app">
+    <table class="layui-table">
+        <colgroup>
+            <col width="50">
+            <col width="50">
+            <col>
+        </colgroup>
+        <thead>
+        <tr>
+            <th>学号</th>
+            <th>学生名称</th>
+            <th>性别</th>
+            <th>生日</th>
+            <th>专业</th>
+            <th>学分</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr v-for="user in users">
+            <th>{{user.sno}}</th>
+            <th>{{user.sname}}</th>
+            <th>{{user.ssex}}</th>
+            <th>{{user.sbirthday}}</th>
+            <th>{{user.speciality}}</th>
+            <th>{{user.tc}}</th>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<script>
+    new Vue({
+        el: "#app",
+        data() {
+            return {
+                users: []
+            }
+        },
+        mounted() {
+            this.fetchData();
+        },
+        methods: {
+            fetchData() {
+                axios({
+                    method: 'GET',
+                    url: 'http://127.0.0.1:8080/getAll',
+                }).then((result) => {
+                    this.users = result.data
+                }).catch((error) => {
+                    console.error('Error fetching data:', error);
+                });
+            }
+        }
+    });
+</script>
+</body>
+
+</html>
