@@ -11,4 +11,5 @@ public interface studentService {
     STUDENT getOneStudent(int sno);
     int deleteStudent(int sno);
     int addStudent( STUDENT student);
+    int updaleteStudent(STUDENT student);
 }

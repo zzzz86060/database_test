@@ -2,9 +2,11 @@ package com.zz.pojo;
 
 import lombok.Data;
 
+import java.math.BigDecimal;
+
 @Data
 public class SCORE {
-    char sno;
+    BigDecimal sno;
     char cno;
     int grade;
 }

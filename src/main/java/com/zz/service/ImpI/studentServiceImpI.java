@@ -35,4 +35,11 @@ public class studentServiceImpI implements studentService {
         return studentMapper.addStudent(student);
     }
 
+    @Override
+    public int updaleteStudent(STUDENT student) {
+        return studentMapper.updaleteStudent(student);
+    }
+
+
+
 }
