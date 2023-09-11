@@ -3,6 +3,7 @@ package com.zz.controller;
 import com.zz.mapper.courseMapper;
 import com.zz.mapper.scoreMapper;
 import com.zz.pojo.STUDENT;
+import com.zz.pojo.StudentUpdateRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
@@ -43,11 +44,14 @@ public class studentcontroller {
         int cnt =  service.addStudent(student);
         return cnt > 0;
     }
+
     @RequestMapping("/update")
-    public Boolean  updaleteStudent(@RequestBody BigDecimal sno,BigDecimal TC){
-        int cnt = service.updaleteStudent(sno, TC);
+    public Boolean updaleteStudent(@RequestBody StudentUpdateRequest request) {
+        int cnt = service.updaleteStudent(request.getSNO(), request.getTC());
         return cnt > 0;
     }
+
+
 
     @RequestMapping("/getAllScore")
     public Object getAll() {
