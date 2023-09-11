@@ -4,12 +4,13 @@ import com.zz.pojo.STUDENT;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 public interface studentService {
     List<STUDENT> getAllStudent();
-    STUDENT getOneStudent(int sno);
-    int deleteStudent(int sno);
+    STUDENT getOneStudent(BigDecimal sno);
+    int deleteStudent(BigDecimal sno);
     int addStudent( STUDENT student);
     int updaleteStudent(STUDENT student);
 }

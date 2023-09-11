@@ -15,9 +15,9 @@ public interface studentMapper {
     @Select("select * from STUDENT")
     List<STUDENT> getAllStudent();
     @Select("select * from STUDENT where sno = #{sno}")
-    STUDENT getOneStudent(@Param(value = "sno") int sno);
+    STUDENT getOneStudent(@Param(value = "sno") BigDecimal sno);
     @Delete("delete from STUDENT where sno = ${sno}")
-    int deleteStudent(@Param(value = "sno") Integer sno);
+    int deleteStudent(@Param(value = "sno") BigDecimal sno);
     @Update("update STUDENT set SNAME=#{STUDENT.sname}, SSEX=#{STUDENT.ssex}, SBIRTHDAY=#{STUDENT.sbirthday}, SPECIALITY=#{STUDENT.speciality}, SCLASS=#{STUDENT.SCLASS}, TC=#{STUDENT.TC} where SNO=#{STUDENT.SNO}")
     int updaleteStudent(@Param(value = "STUDENT")  STUDENT student);
     @Select("")

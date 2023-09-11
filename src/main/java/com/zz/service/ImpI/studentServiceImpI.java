@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigDecimal;
 import java.util.List;
 @Service
 public class studentServiceImpI implements studentService {
@@ -19,15 +20,17 @@ public class studentServiceImpI implements studentService {
     }
 
     @Override
-    public STUDENT getOneStudent(int sno) {
+    public STUDENT getOneStudent(BigDecimal sno) {
         return studentMapper.getOneStudent(sno);
     }
 
     @Override
-    @Transactional
-    public int deleteStudent(int sno) {
+    public int deleteStudent(BigDecimal sno) {
         return studentMapper.deleteStudent(sno);
     }
+
+
+
 
     @Override
     @Transactional
@@ -39,7 +42,4 @@ public class studentServiceImpI implements studentService {
     public int updaleteStudent(STUDENT student) {
         return studentMapper.updaleteStudent(student);
     }
-
-
-
 }
