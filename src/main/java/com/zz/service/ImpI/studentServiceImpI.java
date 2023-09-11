@@ -39,7 +39,9 @@ public class studentServiceImpI implements studentService {
     }
 
     @Override
-    public int updaleteStudent(STUDENT student) {
-        return studentMapper.updaleteStudent(student);
+    public int updaleteStudent(BigDecimal sno, BigDecimal TC) {
+         return studentMapper.updaleteStudent(sno,TC);
     }
+
+
 }

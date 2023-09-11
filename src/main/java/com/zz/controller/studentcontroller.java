@@ -44,8 +44,8 @@ public class studentcontroller {
         return cnt > 0;
     }
     @RequestMapping("/update")
-    public Boolean  updaleteStudent(@RequestBody STUDENT student){
-        int cnt = service.updaleteStudent(student);
+    public Boolean  updaleteStudent(@RequestBody BigDecimal sno,BigDecimal TC){
+        int cnt = service.updaleteStudent(sno, TC);
         return cnt > 0;
     }
 

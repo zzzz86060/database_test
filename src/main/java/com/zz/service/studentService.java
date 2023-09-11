@@ -12,5 +12,5 @@ public interface studentService {
     STUDENT getOneStudent(BigDecimal sno);
     int deleteStudent(BigDecimal sno);
     int addStudent( STUDENT student);
-    int updaleteStudent(STUDENT student);
+    int updaleteStudent(BigDecimal sno, BigDecimal TC);
 }
