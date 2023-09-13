@@ -16,16 +16,16 @@
             <div class="layui-form-item">
                 <label class="layui-form-label">学号</label>
                 <div class="layui-input-block">
-                    <input type="text" name="name" v-model="STUDENT.sno" required lay-verify="required"
-                        placeholder="请输入用户学号" autocomplete="off" class="layui-input">
+                    <textarea name="name" v-model="STUDENT.sno" required lay-verify="required" placeholder="请输入学号"
+                        autocomplete="off" class="layui-textarea"></textarea>
                 </div>
             </div>
 
             <div class="layui-form-item">
                 <label class="layui-form-label">姓名</label>
                 <div class="layui-input-block">
-                    <input type="text" name="age" v-model="STUDENT.sname" required lay-verify="required"
-                        placeholder="请输入用户姓名" autocomplete="off" class="layui-input">
+                    <textarea name="age" v-model="STUDENT.sname" required lay-verify="required" placeholder="请输入用户姓名"
+                        autocomplete="off" class="layui-textarea"></textarea>
                 </div>
             </div>
 
@@ -87,17 +87,17 @@
                     var _this = this;
                     axios({
                         method: "POST", // 使用POST方法
-                        url: "http://127.0.0.1:8080/update/",
+                        url: "http://127.0.0.1:8080/updateAll/",
                         data: JSON.stringify(_this.STUDENT), // 正确发送用户信息的对象
                         headers: {
                             'Content-Type': 'application/json;charset=UTF-8'
                         },
                         dataType: 'json' // 添加dataType字段
                     }).then(resp => {
-                        var flag = resp.data
-                        if (flag == true) {
+                        var STUDENT = resp.data
+                        if (STUDENT) {
                             alert("修改数据成功");
-                            window.location.href = "Index.html";
+                            _this.STUDENT = STUDENT
                         } else {
                             alert("修改数据失败");
                         }

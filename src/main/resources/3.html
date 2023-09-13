@@ -1,0 +1,82 @@
+<!--
+ * @Author: 百璃anki 137508190+zzzz86060@users.noreply.github.com
+ * @Date: 2023-09-11 16:42:05
+ * @LastEditors: 百璃anki 137508190+zzzz86060@users.noreply.github.com
+ * @LastEditTime: 2023-09-13 22:22:04
+ * @FilePath: \vue1\3.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>新增用户数据</title>
+    <link rel="stylesheet" type="text/css" href="https://www.layuicdn.com/layui-v2.5.6/css/layui.css" />
+    <script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+</head>
+
+<body>
+    <div id="app">
+        <div class="layui-form-item layui-form-text">
+            <label class="layui-form-label">学号</label>
+            <div class="layui-input-block">
+                <textarea name="addres" v-model="sno" placeholder="请输入学号" class="layui-textarea"></textarea>
+            </div>
+            <div class="layui-form-item layui-form-text">
+                <label class="layui-form-label">学分</label>
+                <div class="layui-input-block">
+                    <textarea name="addres" v-model="tc" placeholder="请输入学分" class="layui-textarea"></textarea>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <input type="button" class="layui-btn" @click="update()" value="立即提交">
+                    <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                </div>
+            </div>
+        </div>
+        <script>
+            new Vue({
+                el: "#app",
+                data() {
+                    return {
+                        sno: "",
+                        tc: ""
+                    }
+                },
+                methods: {
+                    update() {
+                        const sno = this.sno
+                        const tc = this.tc;
+                        alert("点击提交" + this.sno + "," + this.tc);
+                        var _this = this;
+                        axios({
+                            method: "POST", // 使用POST方法
+                            url: "http://127.0.0.1:8080/update/",
+                            data: JSON.stringify({ sno, tc }), // 发送学号和学分的对象
+                            headers: {
+                                'Content-Type': 'application/json;charset=UTF-8'
+                            },
+                            dataType: 'json' // 添加dataType字段
+                        }).then(resp => {
+                            var STUDENT = resp.data;
+                            if (STUDENT) {
+                                // 更新数据
+                                _this.sno = STUDENT.sno;
+                                _this.tc = STUDENT.tc;
+                                alert("修改数据成功");
+                            } else {
+                                alert("修改数据失败");
+                            }
+                        })
+                    }
+
+                }
+            })
+        </script>
+</body>
+
+</html>
