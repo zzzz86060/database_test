@@ -7,6 +7,7 @@ import com.zz.pojo.StudentUpdateRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import com.zz.service.studentService;
 
@@ -46,12 +47,23 @@ public class studentcontroller {
     }
 
     @RequestMapping("/update")
-    public Boolean updaleteStudent(@RequestBody StudentUpdateRequest request) {
+    public STUDENT updaleteStudent(@RequestBody StudentUpdateRequest request) {
         int cnt = service.updaleteStudent(request.getSNO(), request.getTC());
-        return cnt > 0;
+        if(cnt > 0){
+            return service.getOneStudent(request.getSNO());
+        }
+        else
+            return null;
     }
-
-
+@RequestMapping("/updateAll")
+@Transactional
+    public STUDENT updateAll(@RequestBody STUDENT student){
+        int cnt = service.updaleteAll(student);
+        if(cnt > 0)
+            return service.getOneStudent(student.getSNO());
+        else
+            return null;
+    }
 
     @RequestMapping("/getAllScore")
     public Object getAll() {

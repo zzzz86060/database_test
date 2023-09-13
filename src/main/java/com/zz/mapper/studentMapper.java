@@ -20,8 +20,8 @@ public interface studentMapper {
     int deleteStudent(@Param(value = "sno") BigDecimal sno);
     @Update("update STUDENT set TC=#{TC} where SNO=#{SNO}")
     int updaleteStudent(@Param("SNO") BigDecimal sno,@Param("TC") BigDecimal TC);
-    @Select("")
-    int findcourseAndSCORE(STUDENT student);
+    @Update("update STUDENT set SNAME=#{STUDENT.sname}, SSEX=#{STUDENT.ssex}, SBIRTHDAY=#{STUDENT.sbirthday}, SPECIALITY=#{STUDENT.speciality}, SCLASS=#{STUDENT.SCLASS}, TC=#{STUDENT.TC} where SNO=#{STUDENT.SNO}")
+    int updaleteAll(@Param("STUDENT") STUDENT student);
 
 }
 
